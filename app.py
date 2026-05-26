@@ -1,4 +1,5 @@
 import os
+from pathlib import Path
 
 from dotenv import load_dotenv
 from flask import Flask, render_template
@@ -6,8 +7,11 @@ from flask import Flask, render_template
 from routes.status_routes import status_bp
 
 
+BASE_DIR = Path(__file__).resolve().parent
+
+
 def create_app():
-	load_dotenv()
+	load_dotenv(BASE_DIR / ".env")
 
 	app = Flask(__name__)
 	app.register_blueprint(status_bp)

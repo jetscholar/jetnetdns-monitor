@@ -26,15 +26,21 @@ def get_mock_pihole_status():
 
 def get_live_pihole_status():
 	"""
-	Initial production-safe implementation.
-
-	This is designed for running directly on jetnetdns later.
-	It checks local Pi-hole status without changing anything.
+	Read-only local Pi-hole status check.
+	Designed to run directly on jetnetdns.
 	"""
-	status = run_command(["pihole", "status"])
+	status = run_command(["/usr/local/bin/pihole", "status"])
+	status_lower = status.lower()
 
-	ftl_active = "FTL is listening on port 53" in status
-	blocking_enabled = "Pi-hole blocking is enabled" in status
+	ftl_active = (
+		"ftl is listening" in status_lower
+		or "listening on port 53" in status_lower
+	)
+
+	blocking_enabled = (
+		"blocking is enabled" in status_lower
+		or "pi-hole blocking is enabled" in status_lower
+	)
 
 	return {
 		"ftl_active": ftl_active,
@@ -58,6 +64,6 @@ def run_command(command):
 			check=False
 		)
 
-		return result.stdout + result.stderr
+		return f"{result.stdout}\n{result.stderr}"
 	except Exception as error:
 		return str(error)
