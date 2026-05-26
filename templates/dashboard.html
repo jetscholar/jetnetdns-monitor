@@ -1,28 +1,159 @@
 {% extends "base.html" %}
 
 {% block content %}
+<section class="summary-grid">
+	<article class="card pihole-card"></article>
+	<article class="summary-card">
+		<span>CPU</span>
+		<strong id="summary-cpu">--</strong>
+		<small id="summary-cpu-sub">--</small>
+	</article>
+
+	<article class="summary-card">
+		<span>Memory</span>
+		<strong id="summary-memory">--</strong>
+		<small id="summary-memory-sub">--</small>
+	</article>
+
+	<article class="summary-card">
+		<span>Disk</span>
+		<strong id="summary-disk">--</strong>
+		<small id="summary-disk-sub">--</small>
+	</article>
+
+	<article class="summary-card">
+		<span>Swap</span>
+		<strong id="summary-swap">--</strong>
+		<small id="summary-swap-sub">--</small>
+	</article>
+</section>
+
 <section class="grid">
 	<article class="card">
-		<h2>System</h2>
+		<h2>Host</h2>
 		<div class="metric">
 			<span>Hostname</span>
 			<strong id="hostname">--</strong>
 		</div>
 		<div class="metric">
-			<span>CPU</span>
-			<strong id="cpu">--</strong>
+			<span>Platform</span>
+			<strong id="platform">--</strong>
 		</div>
 		<div class="metric">
-			<span>Memory</span>
-			<strong id="memory">--</strong>
+			<span>Python</span>
+			<strong id="python-version">--</strong>
 		</div>
 		<div class="metric">
-			<span>Disk</span>
-			<strong id="disk">--</strong>
+			<span>Boot time</span>
+			<strong id="boot-time">--</strong>
 		</div>
 		<div class="metric">
 			<span>Uptime</span>
 			<strong id="uptime">--</strong>
+		</div>
+	</article>
+
+	<article class="card">
+		<h2>CPU</h2>
+		<div class="metric">
+			<span>Usage</span>
+			<strong id="cpu">--</strong>
+		</div>
+		<div class="metric">
+			<span>Logical cores</span>
+			<strong id="logical-cores">--</strong>
+		</div>
+		<div class="metric">
+			<span>Physical cores</span>
+			<strong id="physical-cores">--</strong>
+		</div>
+		<div class="metric">
+			<span>Temperature</span>
+			<strong id="cpu-temp">--</strong>
+		</div>
+		<div class="metric">
+			<span>Load average</span>
+			<strong id="load-average">--</strong>
+		</div>
+		<div class="bar">
+			<div class="bar-fill" id="cpu-bar"></div>
+		</div>
+	</article>
+
+	<article class="card">
+		<h2>Memory</h2>
+		<div class="metric">
+			<span>Used</span>
+			<strong id="memory-used">--</strong>
+		</div>
+		<div class="metric">
+			<span>Available</span>
+			<strong id="memory-available">--</strong>
+		</div>
+		<div class="metric">
+			<span>Usage</span>
+			<strong id="memory">--</strong>
+		</div>
+		<div class="bar">
+			<div class="bar-fill" id="memory-bar"></div>
+		</div>
+	</article>
+
+	<article class="card">
+		<h2>Disk</h2>
+		<div class="metric">
+			<span>Mount</span>
+			<strong id="disk-mount">--</strong>
+		</div>
+		<div class="metric">
+			<span>Used</span>
+			<strong id="disk-used">--</strong>
+		</div>
+		<div class="metric">
+			<span>Free</span>
+			<strong id="disk-free">--</strong>
+		</div>
+		<div class="metric">
+			<span>Usage</span>
+			<strong id="disk">--</strong>
+		</div>
+		<div class="bar">
+			<div class="bar-fill" id="disk-bar"></div>
+		</div>
+	</article>
+
+	<article class="card">
+		<h2>Network counters</h2>
+		<div class="metric">
+			<span>Received</span>
+			<strong id="net-received">--</strong>
+		</div>
+		<div class="metric">
+			<span>Sent</span>
+			<strong id="net-sent">--</strong>
+		</div>
+		<div class="metric">
+			<span>Packets received</span>
+			<strong id="packets-received">--</strong>
+		</div>
+		<div class="metric">
+			<span>Packets sent</span>
+			<strong id="packets-sent">--</strong>
+		</div>
+	</article>
+
+	<article class="card">
+		<h2>Swap</h2>
+		<div class="metric">
+			<span>Used</span>
+			<strong id="swap-used">--</strong>
+		</div>
+		<div class="metric">
+			<span>Usage</span>
+			<strong id="swap">--</strong>
+		</div>
+		<div class="bar">
+			<div class="bar-fill" id="swap-bar"></div>
 		</div>
 	</article>
 
@@ -47,6 +178,10 @@
 		<div class="metric">
 			<span>Blocked Today</span>
 			<strong id="blocked">--</strong>
+		</div>
+		<div class="metric">
+			<span>Mode</span>
+			<strong id="mode">--</strong>
 		</div>
 	</article>
 </section>
