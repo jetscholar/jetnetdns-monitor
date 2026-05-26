@@ -1,0 +1,153 @@
+:root {
+	--imperial-blue: #0a2463ff;
+	--blue-bell: #3e92ccff;
+	--ghost-white: #fffaffff;
+	--magenta-bloom: #d8315bff;
+	--card-border: rgba(10, 36, 99, 0.12);
+	--shadow: 0 12px 30px rgba(10, 36, 99, 0.18);
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	font-family: Arial, Helvetica, sans-serif;
+	background: var(--ghost-white);
+	color: var(--imperial-blue);
+}
+
+.topbar {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 1rem;
+	padding: 0.85rem 1.25rem;
+	background: linear-gradient(90deg, var(--imperial-blue), var(--blue-bell));
+	color: var(--ghost-white);
+}
+
+.brand {
+	display: flex;
+	align-items: center;
+	gap: 0.75rem;
+	min-width: 0;
+}
+
+.brand-logo {
+	width: 42px;
+	height: 42px;
+	max-width: 42px;
+	max-height: 42px;
+	object-fit: contain;
+	flex: 0 0 42px;
+	background: rgba(255, 250, 255, 0.10);
+	border: 1px solid rgba(255, 250, 255, 0.25);
+	border-radius: 10px;
+	padding: 0.25rem;
+}
+
+.brand-text h1 {
+	margin: 0;
+	font-size: 1.45rem;
+	line-height: 1.1;
+}
+
+.brand-text p {
+	margin: 0.25rem 0 0;
+	font-size: 0.85rem;
+	opacity: 0.85;
+}
+
+.topbar h1 {
+	margin: 0;
+	font-size: 1.8rem;
+}
+
+.topbar p {
+	margin: 0.35rem 0 0;
+	opacity: 0.85;
+}
+
+.status-pill {
+	padding: 0.55rem 0.9rem;
+	border-radius: 999px;
+	background: rgba(255, 250, 255, 0.16);
+	border: 1px solid rgba(255, 250, 255, 0.35);
+	font-weight: 700;
+	white-space: nowrap;
+}
+
+.status-pill.ok {
+	background: var(--blue-bell);
+}
+
+.status-pill.error {
+	background: var(--magenta-bloom);
+}
+
+.page {
+	padding: 2rem;
+}
+
+.grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+	gap: 1.25rem;
+}
+
+.card {
+	background: white;
+	border: 1px solid var(--card-border);
+	border-radius: 18px;
+	padding: 1.25rem;
+	box-shadow: var(--shadow);
+}
+
+.card h2 {
+	margin: 0 0 1rem;
+	color: var(--imperial-blue);
+}
+
+.metric {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 1rem;
+	padding: 0.75rem 0;
+	border-bottom: 1px solid rgba(10, 36, 99, 0.08);
+}
+
+.metric:last-child {
+	border-bottom: none;
+}
+
+.metric span {
+	color: rgba(10, 36, 99, 0.7);
+}
+
+.metric strong {
+	color: var(--imperial-blue);
+	text-align: right;
+}
+
+.good {
+	color: var(--blue-bell);
+}
+
+.bad {
+	color: var(--magenta-bloom);
+}
+
+@media (max-width: 640px) {
+	.topbar {
+		flex-direction: column;
+		align-items: flex-start;
+		padding: 1rem;
+	}
+
+	.page {
+		padding: 1rem;
+	}
+}

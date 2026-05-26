@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="grid">
+	<article class="card">
+		<h2>System</h2>
+		<div class="metric">
+			<span>Hostname</span>
+			<strong id="hostname">--</strong>
+		</div>
+		<div class="metric">
+			<span>CPU</span>
+			<strong id="cpu">--</strong>
+		</div>
+		<div class="metric">
+			<span>Memory</span>
+			<strong id="memory">--</strong>
+		</div>
+		<div class="metric">
+			<span>Disk</span>
+			<strong id="disk">--</strong>
+		</div>
+		<div class="metric">
+			<span>Uptime</span>
+			<strong id="uptime">--</strong>
+		</div>
+	</article>
+
+	<article class="card">
+		<h2>Pi-hole</h2>
+		<div class="metric">
+			<span>FTL</span>
+			<strong id="ftl">--</strong>
+		</div>
+		<div class="metric">
+			<span>Blocking</span>
+			<strong id="blocking">--</strong>
+		</div>
+		<div class="metric">
+			<span>Gravity Domains</span>
+			<strong id="gravity">--</strong>
+		</div>
+		<div class="metric">
+			<span>Queries Today</span>
+			<strong id="queries">--</strong>
+		</div>
+		<div class="metric">
+			<span>Blocked Today</span>
+			<strong id="blocked">--</strong>
+		</div>
+	</article>
+</section>
+{% endblock %}
